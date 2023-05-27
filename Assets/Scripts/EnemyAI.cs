@@ -6,15 +6,25 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform target;
    
-    public float HP;
     public float speed;
     public float limitDis;
 
-    public Animator anim;
+    private Animator anim;
+
+    private Enemy enemyScript;
+    private Player playerScript;
+    private GameManager gameManager;
 
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
+        enemyScript = this.gameObject.GetComponent<Enemy>();
+
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        playerScript = playerObject.GetComponent<Player>();
+
+        GameObject gameManagerObject = GameObject.FindWithTag("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
     void Update()
@@ -50,6 +60,17 @@ public class EnemyAI : MonoBehaviour
         // dirY = (dirY < 0) ? -1 : 1;
 
         transform.Translate(new Vector2(dirX, dirY) * speed * Time.deltaTime);
-        
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log(playerScript.HP);
+            playerScript.HP -= 1;
+            if(playerScript.HP <= 0) {
+                gameManager.GameOver(); //플레이어 라이프가 0이 되었을 때 게임오버 만들어줌
+            }
+        }
     }
 }

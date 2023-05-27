@@ -5,14 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Villager
+  - Enemy
+  - Boundary
+  - Bullet
+  - GameManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Boundary
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -47,4 +51,10 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1718699885
+    locked: 0
+  - name: Bullet
+    uniqueID: 1020188541
+    locked: 0
+  - name: Player
+    uniqueID: 3976045255
     locked: 0
