@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SadVillage.unity
+    guid: cfa959b3e04c17b4caaf7c6ec8a28d66
+  - enabled: 1
+    path: Assets/Scenes/Dungeon.unity
+    guid: 2698da7590bbf49109164725b7225aae
+  - enabled: 1
     path: Assets/Scenes/HappyVillage.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
